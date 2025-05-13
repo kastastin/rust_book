@@ -1,3 +1,5 @@
+use crate::front_of_house::hosting;
+
 #[allow(dead_code)]
 mod front_of_house {
     pub mod hosting {
@@ -45,6 +47,13 @@ mod back_of_house {
     }
 }
 
+#[allow(dead_code)]
+mod customer {
+    pub fn eat_at_restaurant() {
+        super::hosting::add_to_waitlist();
+    }
+}
+
 fn deliver_order() {}
 
 pub fn eat_at_restaurant() {
@@ -53,6 +62,9 @@ pub fn eat_at_restaurant() {
 
     // Relative path
     front_of_house::hosting::add_to_waitlist();
+
+    // use
+    hosting::add_to_waitlist();
 
     let mut meal = back_of_house::Breakfast::summer("Rye");
 
