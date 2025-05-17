@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 fn main() {
     first_example();
     second_example();
