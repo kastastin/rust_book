@@ -1,6 +1,8 @@
 use generic_types::generic_type_examples;
+use lifetimes::lifetime_examples;
 
 mod generic_types;
+mod lifetimes;
 
 fn main() {
     first_example();
@@ -8,6 +10,7 @@ fn main() {
     third_example();
 
     generic_type_examples();
+    lifetime_examples();
 }
 
 fn first_example() {
