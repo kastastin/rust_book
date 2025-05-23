@@ -1,9 +1,10 @@
-use std::collections::HashMap;
+use std::{collections::HashMap, hash::Hash};
 
 pub fn hashmap_examples() {
     first_example();
     second_example();
     third_example();
+    fourth_example();
 }
 
 fn first_example() {
@@ -64,4 +65,22 @@ fn third_example() {
     ------------",
         map
     );
+}
+
+fn fourth_example() {
+    let colors = vec!["black", "black", "white", "red", "red", "red"];
+
+    let colors_count = count_occurrences(&colors);
+
+    println!("{:?}", colors_count);
+}
+
+fn count_occurrences<T: Eq + Hash + Clone>(vecs: &[T]) -> HashMap<T, i32> {
+    let mut counts = HashMap::new();
+
+    for el in vecs {
+        *counts.entry(el.clone()).or_insert(0) += 1;
+    }
+
+    counts
 }
